@@ -25,15 +25,24 @@
 					<Add option="-fexpensive-optimizations" />
 					<Add option="-O3" />
 				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-std=c++11" />
+			<Add option="-m32" />
 		</Compiler>
 		<Linker>
-			<Add option="-static -static-libgcc" />
+			<Add option="-m32" />
 		</Linker>
+		<ExtraCommands>
+			<Add after="cp -vf /c/Dev/MSYS2/mingw32/bin/libgcc_s_dw2-1.dll ./" />
+			<Add after="cp -vf /c/Dev/MSYS2/mingw32/bin/libstdc++-6.dll ./" />
+			<Add after="cp -vf /c/Dev/MSYS2/mingw32/bin/libwinpthread-1.dll ./" />
+		</ExtraCommands>
 		<Unit filename="Main.cpp" />
 		<Unit filename="Main.hpp" />
 		<Extensions>
